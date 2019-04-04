@@ -16,8 +16,13 @@ func ListenGrafana(in *grafanastruct.FromGrafana) {
 	http.Post(token, "application/json", bytes.NewBuffer([]byte(msg)))
 }
 
-func handlerUrl(url string) {
+func SendMSG(in string) bool {
+	ch := strings.Split(in, " ")
+	if len(ch) != 3 {
+		return false
+	}
 
+	return true
 }
 
 var dingdingSay = `{
