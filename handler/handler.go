@@ -8,20 +8,17 @@ import (
 	"strings"
 )
 
-var token = "https://oapi.dingtalk.com/robot/send?access_token=48f97d91f4fa1a31b7720e0ae30d76217151fc1676c9e5efd8ab034c0b86a6a1"
+var token = "https://oapi.dingtalk.com/robot/send?access_token=8385c8b14e809f8fc0aa2dfe5351a87ae5dfa32e7b4f06de0b56bb7b18da65ec"
 
 func ListenGrafana(in *grafanastruct.FromGrafana) {
 	index := strings.Index(in.RuleURL[8:], string(47))
-	fmt.Println(index,string(47),)
 	url := "http://120.76.198.104:3080" + in.RuleURL[index+8:]
-	fmt.Println(in.RuleURL)
-	fmt.Println(url)
 	msg := fmt.Sprintf(dingdingSay, in.Message, in.Title, in.ImageURL, url)
-	rsp,err:=http.Post(token, "application/json", bytes.NewBuffer([]byte(msg)))
+	fmt.Println(msg)
+	_,err:=http.Post(token, "application/json", bytes.NewBuffer([]byte(msg)))
 	if err!=nil{
 		fmt.Println(err)
 	}
-	fmt.Println(rsp)
 }
 
 func SendMSG(in string) bool {
