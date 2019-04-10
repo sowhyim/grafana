@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-var token = "https://oapi.dingtalk.com/robot/send?access_token=8385c8b14e809f8fc0aa2dfe5351a87ae5dfa32e7b4f06de0b56bb7b18da65ec"
+var token = "https://oapi.dingtalk.com/robot/send?access_token=7a1924682a85549535a258a9132b55270e116466bd744a12c3ad67df0cff9bec"
 
 func ListenGrafana(in *grafanastruct.FromGrafana) {
 	index := strings.Index(in.RuleURL[8:], string(47))
