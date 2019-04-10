@@ -24,8 +24,13 @@ func ListenGrafana(in *grafanastruct.FromGrafana) {
 	fmt.Println(rsp)
 }
 
-func handlerUrl(url string) {
+func SendMSG(in string) bool {
+	ch := strings.Split(in, " ")
+	if len(ch) != 3 {
+		return false
+	}
 
+	return true
 }
 
 var dingdingSay = `{
